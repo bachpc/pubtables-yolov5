@@ -1,0 +1,13 @@
+path: ../PubTables-1M/PubTables-1M-Structure-YOLO
+train: images/train
+val: images/val
+test: images/test
+
+# Classes
+names:
+  0: table
+  1: table column
+  2: table row
+  3: table column header
+  4: table projected row header
+  5: table spanning cell

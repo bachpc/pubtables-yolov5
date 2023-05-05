@@ -1,0 +1,9 @@
+path: ../PubTables-1M/PubTables-1M-Detection-YOLO
+train: images/train
+val: images/val
+test: images/test
+
+# Classes
+names:
+  0: table
+  1: table rotated
