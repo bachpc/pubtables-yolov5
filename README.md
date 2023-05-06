@@ -1,17 +1,22 @@
 # PubTables-1M training by YOLOv5
 
-Firstly, download PubTables-1M dataset and put it into `/PubTables-1M`.
+Firstly, download PubTables-1M dataset and put it into `./PubTables-1M`.
 
 Train and val:
 ```bash
+# Train Detection
 python train.py --batch-size -1 --data data/custom-detection.yaml --weights yolov5m.pt --img 640 --project PubTables-1M-YOLO --name yolov5m-custom-detection --hyp data/hyps/hyp.scratch-med.yaml --epochs 15 --device 0
 
+# Val Detection
 python val.py --batch-size 256 --data data/custom-detection.yaml --weights PubTables-1M-YOLO/yolov5m-custom-detection/weights/best.pt --project PubTables-1M-YOLO --name yolov5m-custom-detection-val --img 640 --task test --device 0
 
+# Train Structure
 python train.py --batch-size -1 --data data/custom-structure.yaml --weights yolov5m.pt --img 640 --project PubTables-1M-YOLO --name yolov5m-custom-structure --hyp data/hyps/hyp.scratch-med.yaml --epochs 15 --device 0
 
+# Val Structure mAP
 python val.py --batch-size 256 --data data/custom-structure.yaml --weights PubTables-1M-YOLO/yolov5m-custom-structure/weights/best.pt --img 640 --project PubTables-1M-YOLO --name yolov5m-custom-structure-val --task test --device 0
 
+# Val Structure GriTS
 python val_structure_grits.py --batch-size 256 --data data/custom-structure.yaml --weights PubTables-1M-YOLO/yolov5m-custom-structure/weights/best.pt --img 640 --project PubTables-1M-YOLO --name yolov5m-custom-structure-val --task test --conf-thres 0.25 --iou-thres 0.45 --device 0
 ```
 
